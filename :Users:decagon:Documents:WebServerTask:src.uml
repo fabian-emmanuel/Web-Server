@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>/Users/decagon/Documents/WebServerTask/src</OriginalElement>
+  <nodes>
+    <node x="203.75" y="0.0">enums.ContentType</node>
+    <node x="48.0" y="651.0">driver.HttpServer</node>
+    <node x="48.0" y="890.0">driver.HttpServerTest</node>
+    <node x="313.99999999999994" y="272.5">enums.ContentTypeTest</node>
+    <node x="0.0" y="217.0">core.HTTPConnectionWorkerThread</node>
+    <node x="37.5" y="456.0">core.ServerListenerThread</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="driver.HttpServerTest" target="driver.HttpServer" relationship="DEPENDENCY">
+      <point x="0.0" y="-72.0" />
+      <point x="0.0" y="94.5" />
+    </edge>
+    <edge source="driver.HttpServer" target="core.ServerListenerThread" relationship="CREATE">
+      <point x="0.0" y="-94.5" />
+      <point x="0.0" y="72.5" />
+    </edge>
+    <edge source="core.ServerListenerThread" target="core.HTTPConnectionWorkerThread" relationship="CREATE">
+      <point x="0.0" y="-72.5" />
+      <point x="0.0" y="94.5" />
+    </edge>
+    <edge source="enums.ContentTypeTest" target="enums.ContentType" relationship="DEPENDENCY">
+      <point x="5.6843418860808015E-14" y="-39.0" />
+      <point x="485.5" y="192.0" />
+      <point x="316.25" y="192.0" />
+      <point x="0.0" y="83.5" />
+    </edge>
+    <edge source="core.HTTPConnectionWorkerThread" target="enums.ContentType" relationship="DEPENDENCY">
+      <point x="0.0" y="-94.5" />
+      <point x="147.0" y="192.0" />
+      <point x="316.25" y="192.0" />
+      <point x="0.0" y="83.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.4364326375711575" showDependencies="true" x="328.5" y="517.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
