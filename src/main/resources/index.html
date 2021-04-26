@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FrontEndGridTask</title>
+
+  <style>
+    /* My Style*/
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: fantasy;
+      margin: 20px;
+      background: black;
+      color: ghostwhite;
+      counter-reset: element;
+    }
+    .periodic-table {
+      display: grid;
+      grid-column-gap: 4px;
+      grid-row-gap: 4px;
+      padding-left: 0;
+    }
+    .periodic-table > li {
+      display: flex;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      height: 40px;
+      border-radius: 2px;
+      background: cornflowerblue;
+      font-weight: bold;
+    }
+    .periodic-table > li:before {
+      counter-increment: element;
+      content: counter(element);
+      position: absolute;
+      bottom: 5px;
+      left: 6px;
+      font-size: 7px;
+      font-weight: bold;
+    }
+    .periodic-table > li h2 {
+      font-size: 15px;
+    }
+    #helium {
+      grid-column-start: 18;
+    }
+    #boron, #aluminium {
+      grid-column-start: 13;
+    }
+    .periodic-table > li:nth-child(n+58):nth-last-child(n+48) {
+      grid-row-start: 8;
+    }
+    .periodic-table > li:nth-child(n+90):nth-last-child(n+16) {
+      grid-row-start: 9;
+    }
+    .periodic-table:before {
+      display: block;
+      content: '';
+      grid-row: 8 / 10;
+      grid-column: 1 / 4;
+    }
+    .periodic-table .noble-gas {
+      background: limegreen;
+    }
+    .periodic-table .diatomic-nonmetal {
+      background: dodgerblue;
+    }
+    .periodic-table .alkali {
+      background: deeppink;
+    }
+    .periodic-table .metal{
+      background: purple;
+    }
+    .periodic-table .hydrogen {
+      background: darkgreen;
+    }
+    .periodic-table .transition-metal{
+      background: red;
+    }
+    .periodic-table .alkaline {
+      background: blue;
+    }
+    .periodic-table .metalloid {
+      background: indianred;
+    }
+    .periodic-table .polyatomic-non-metal {
+      background: forestgreen;
+    }
+    .periodic-table .hidden {
+      background: black;
+    }
+
+  </style>
+
+</head>
+
+<body>
+<ol class="periodic-table">
+  <li class="hydrogen">
+    <h2 title="Hydrogen">H</h2>
+  </li>
+  <li id="helium" class="noble-gas">
+    <h2 title="Helium">He</h2>
+  </li>
+  <li class="alkali">
+    <h2 title="Lithium">Li</h2>
+  </li>
+  <li class="alkaline">
+    <h2 title="Beryllium">Be</h2>
+  </li>
+  <li id="boron" class="metalloid">
+    <h2 title="Boron">B</h2>
+  </li>
+  <li class="polyatomic-non-metal">
+    <h2 title="Carbon">C</h2>
+  </li>
+
+  <li class="polyatomic-non-metal">
+    <h2 title="Nitrogen">N</h2>
+  </li>
+  <li class="polyatomic-non-metal">
+    <h2 title="Oxygen">O</h2>
+  </li>
+  <li class="diatomic-nonmetal">
+    <h2 title="Fluorine">F</h2>
+  </li>
+  <li class="noble-gas">
+    <h2 title="Neon">Ne</h2>
+  </li>
+  <li class="alkali">
+    <h2 title="Sodium">Na</h2>
+  </li>
+  <li class="alkaline">
+    <h2 title="Magnesium">Mg</h2>
+  </li>
+  <li id="aluminium" class="metal">
+    <h2 title="Aluminium">Al</h2>
+  </li>
+  <li class="metalloid">
+    <h2 title="Silicon">Si</h2>
+  </li>
+  <li class="polyatomic-non-metal">
+    <h2 title="Phosphorus">P</h2>
+  </li>
+  <li class="polyatomic-non-metal">
+    <h2 title="Sulphur">S</h2>
+  </li>
+  <li class="diatomic-nonmetal">
+    <h2 title="Chlorine">Cl</h2>
+  </li>
+  <li class="noble-gas">
+    <h2 title="Argon">Ar</h2>
+  </li>
+  <li class="alkali">
+    <h2 title="Potassium">K</h2>
+  </li>
+  <li class="alkaline">
+    <h2 title="Calcium">Ca</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Scandium">Sc</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Titanium">Ti</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Vanadium">V</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Chromium">Cr</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Manganese">Mn</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Iron">Fe</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Cobalt">Co</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Nickel">Ni</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Copper">Cu</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Zinc">Zn</h2>
+  </li>
+  <li class="metal">
+    <h2 title="Gallium">Ga</h2>
+  </li>
+  <li class="metalloid">
+    <h2 title="Germanium">Ge</h2>
+  </li>
+  <li class="metalloid">
+    <h2 title="Arsenic">As</h2>
+  </li>
+  <li class="polyatomic-non-metal">
+    <h2 title="Selenium">Se</h2>
+  </li>
+  <li class="diatomic-nonmetal">
+    <h2 title="Bromide">Br</h2>
+  </li>
+  <li class="noble-gas">
+    <h2 title="Krypton">Kr</h2>
+  </li>
+  <li class="alkali">
+    <h2 title="Rubidium">Rb</h2>
+  </li>
+  <li class="alkaline">
+    <h2 title="Strontium">Sr</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Yttrium">Y</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Zirconium">Zr</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Niobium">Nb</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Molybdenum">Mo</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Technetium">Tc</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Ruthenium">Ru</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Rhodium">Ro</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Palladium">Pd</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Silver">Ag</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Cadmium">Cd</h2>
+  </li>
+  <li class="metal">
+    <h2 title="Indium">In</h2>
+  </li>
+  <li class="metal">
+    <h2 title="Tin">Sn</h2>
+  </li>
+  <li class="metalloid">
+    <h2 title="Antimony">Sb</h2>
+  </li>
+  <li class="metalloid">
+    <h2 title="Tellurium">Te</h2>
+  </li>
+  <li class="diatomic-nonmetal">
+    <h2 title="Iodine">I</h2>
+  </li>
+  <li class="noble-gas">
+    <h2 title="Xenon">Xe</h2>
+  </li>
+  <li class="alkali">
+    <h2 title="Caesium">Cs</h2>
+  </li>
+  <li class="alkaline">
+    <h2 title="Barium">Ba</h2>
+  </li>
+  <li class="hidden">
+    <h2 title="Lanthanum">*</h2>
+  </li>
+  <li id="hafnium" class="transition-metal">
+    <h2 title="Hafnium">Hf</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Tantalum">Ta</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Tungsten">W</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Rhenium">Re</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Osmium">Os</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Iridium">Ir</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Platinum">Pt</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Gold">Au</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Mercury">Hg</h2>
+  </li>
+  <li class="metal">
+    <h2 title="Thallium">Tl</h2>
+  </li>
+  <li class="metal">
+    <h2 title="Lead">Pb</h2>
+  </li>
+  <li class="metal">
+    <h2 title="Bismuth">Bi</h2>
+  </li>
+  <li class="metalloid">
+    <h2 title="Polonium">Po</h2>
+  </li>
+  <li class="diatomic-nonmetal">
+    <h2 title="Astatine">At</h2>
+  </li>
+  <li class="noble-gas">
+    <h2 title="Radon">Rn</h2>
+  </li>
+  <li class="alkali">
+    <h2 title="Francium">Fr</h2>
+  </li>
+  <li class="alkaline">
+    <h2 title="Radium">Ra</h2>
+  </li>
+  <li class="hidden">
+    <h2 title="Actinium">**</h2>
+  </li>
+  <li id="rutherfordium" class="transition-metal">
+    <h2 title="Rutherfordium">Rf</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Dubnium">Db</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Seaborgium">Sg</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Bohrium">Bh</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Hassium">Hs</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Meitnerium">Mt</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Darmstadtium">Ds</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Roentgenium">Rg</h2>
+  </li>
+  <li class="transition-metal">
+    <h2 title="Copernicium">Cn</h2>
+  </li>
+  <li class="metal">
+    <h2 title="Nihonium">Nh</h2>
+  </li>
+  <li class="metal">
+    <h2 title="Flerovium">Fl</h2>
+  </li>
+  <li class="metal">
+    <h2 title="Moscovium">Mc</h2>
+  </li>
+  <li class="metal">
+    <h2 title="Livermorium">Lv</h2>
+  </li>
+  <li class="diatomic-nonmetal">
+    <h2 title="Tennessine">Ts</h2>
+  </li>
+  <li class="noble-gas">
+    <h2 title="Oganesson">Og</h2>
+  </li>
+</ol>
+
+</body>
+</html>

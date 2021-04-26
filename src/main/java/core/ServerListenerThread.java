@@ -1,0 +1,43 @@
+package core;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.*;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Date;
+
+public class ServerListenerThread extends Thread{
+    public static Logger log = LoggerFactory.getLogger(ServerListenerThread.class);
+
+    private final ServerSocket serverSocket;
+    boolean verbose = true;
+
+    public ServerListenerThread(int port) throws IOException {
+        this.serverSocket = new ServerSocket(port);
+    }
+
+    @Override
+    public void run() {
+        try {
+            while(serverSocket.isBound() && !serverSocket.isClosed()) {
+                Socket socket = serverSocket.accept();
+
+                log.info(" *** Connection accepted *** : " + socket.getInetAddress());
+                if (verbose) log.info("# Connection opened. (" + new Date() + ")");
+
+                HTTPConnectionWorkerThread workerThread = new HTTPConnectionWorkerThread(socket);
+                workerThread.start();
+            }
+        } catch (IOException e) {
+            log.error("### Problem Encountered in Setting Socket! ### ", e);
+        } finally {
+            if (serverSocket.isClosed()) {
+                try {
+                    serverSocket.close();
+                } catch (IOException ignored) {}
+            }
+        }
+    }
+}
