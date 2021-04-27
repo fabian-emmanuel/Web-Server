@@ -8,6 +8,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Date;
 
+import static enums.ThreadColor.*;
+
 public class ServerListenerThread extends Thread{
     public static Logger log = LoggerFactory.getLogger(ServerListenerThread.class);
 
@@ -22,12 +24,12 @@ public class ServerListenerThread extends Thread{
     public void run() {
         try {
             while(serverSocket.isBound() && !serverSocket.isClosed()) {
-                Socket socket = serverSocket.accept();
+                Socket clientSocket = serverSocket.accept();
 
-                log.info(" *** Connection accepted *** : " + socket.getInetAddress());
-                if (verbose) log.info("# Connection opened. (" + new Date() + ")");
+                log.info(PURPLE + " *** Connection accepted *** : " + CYAN + clientSocket.getInetAddress());
+                if (verbose) log.info(GREEN + "# Connection Processing Initiated! (" + new Date() + ")");
 
-                HTTPConnectionWorkerThread workerThread = new HTTPConnectionWorkerThread(socket);
+                HTTPConnectionWorkerThread workerThread = new HTTPConnectionWorkerThread(clientSocket);
                 workerThread.start();
             }
         } catch (IOException e) {

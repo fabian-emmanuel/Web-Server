@@ -6,6 +6,8 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
+import static enums.ThreadColor.*;
+
 /**
  *  Driver class for Http Server
  *  @author : Fabian Emmanuel
@@ -16,8 +18,8 @@ public class HttpServer {
     static String webRoot = "src/main/resources/";
 
     public static void main(String[] args){
-        log.info("*** ...Starting HTTP Server... ***");
-        log.info("*** ...Using Webroot : " + webRoot);
+        log.info(PURPLE + "*** ...Starting HTTP Server... ***");
+        log.info(GREEN + "*** ...Using Webroot : " + webRoot);
 
         try {
             new HttpServer().startWebServer(getValidPort(args));
@@ -26,9 +28,9 @@ public class HttpServer {
         }
     }
 
-    public void startWebServer(int port) throws IOException {
+    public synchronized void startWebServer(int port) throws IOException {
         ServerListenerThread serverListenerThread = new ServerListenerThread(port);
-        log.info("*** ...Server Listening On Port : " + port);
+        log.info(BLUE + "*** ...Server Listening On Port : " + port);
         serverListenerThread.start();
     }
 
